@@ -2,8 +2,9 @@ import React from "react";
 import "./styles.scss";
 import Logo from "./../../assets/logo.png";
 import { Link } from "react-router-dom";
+import { auth } from "./../../firebase/utlis";
 
-const Header = (props) => {
+const Header = ({ currentUser = null }) => {
   return (
     <header className="header">
       <div className="wrap">
@@ -14,11 +15,23 @@ const Header = (props) => {
         </div>
 
         <div className="headerButtons">
-          <ul>
-            <li>
-              <Link to="/registration">Register</Link>
-            </li>
-          </ul>
+          {currentUser && (
+            <ul>
+              <li>
+                <span onClick={() => auth.signOut()}>Log out</span>
+              </li>
+            </ul>
+          )}
+          {!currentUser && (
+            <ul>
+              <li>
+                <Link to="/registration">Register</Link>
+              </li>
+              <li>
+                <Link to="/login">Log in</Link>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
     </header>
