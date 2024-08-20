@@ -5,6 +5,7 @@ import "./default.scss";
 import Homepage from "./pages/Homepage";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
+import PasswordReset from "./pages/PasswordReset";
 import MainLayout from "./layouts/MainLayout";
 import HomepageLayout from "./layouts/HomepageLayout";
 import { onSnapshot, doc } from "firebase/firestore";
@@ -89,6 +90,14 @@ class App extends Component {
                   <Login />
                 </MainLayout>
               )
+            }
+          />
+          <Route
+            path="/password-reset"
+            element={
+              <MainLayout>
+                <PasswordReset />
+              </MainLayout>
             }
           />
         </Routes>
