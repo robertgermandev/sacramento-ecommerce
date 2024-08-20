@@ -38,6 +38,5 @@ export const handleUserProfile = async (userAuth, additionalData) => {
     }
   }
 
-  // Return the document reference
   return userRef;
 };
