@@ -4,7 +4,7 @@ import SignUp from "../../components/SignUp";
 
 class Registration extends Component {
   render() {
-    return <SignUp />;
+    return <section className="registration"><SignUp /></section>;
   }
 }
 

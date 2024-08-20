@@ -6,6 +6,7 @@ import FormInput from "../forms/FormInput";
 import { signInWithGoogle, auth } from "./../../firebase/utlis";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import AuthWrapper from "../AuthWrapper";
+import GoogleIcon from "./../../assets/google.png";
 
 const initialState = {
   email: "",
@@ -71,7 +72,9 @@ class SignIn extends Component {
             <Button type="submit">Log in</Button>
             <div className="socialSignin">
               <div className="row">
-                <Button onClick={signInWithGoogle}>Sign in with Google</Button>
+                <Button onClick={signInWithGoogle}>
+                  <img src={GoogleIcon} alt="google-icon" className="icon" />
+                </Button>
               </div>
             </div>
 

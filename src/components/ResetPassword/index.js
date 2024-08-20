@@ -59,7 +59,7 @@ const ResetPassword = () => {
             label="Email"
             onChange={handleChange}
           />
-          <Button type="submit">Send Email</Button>
+          <Button type="submit">Send email</Button>
         </form>
       </div>
     </AuthWrapper>
