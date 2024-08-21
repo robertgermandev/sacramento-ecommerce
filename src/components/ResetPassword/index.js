@@ -12,11 +12,6 @@ const ResetPassword = () => {
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setEmail(value);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -57,7 +52,7 @@ const ResetPassword = () => {
             name="email"
             value={email}
             label="Email"
-            onChange={handleChange}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <Button type="submit">Send email</Button>
         </form>

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { auth, handleUserProfile } from "./firebase/utlis";
 import "./default.scss";
@@ -8,17 +8,16 @@ import Login from "./pages/Login";
 import PasswordReset from "./pages/PasswordReset";
 import MainLayout from "./layouts/MainLayout";
 import HomepageLayout from "./layouts/HomepageLayout";
+import Dashboard from "./pages/Dashboard";
 import { onSnapshot, doc } from "firebase/firestore";
 import { setCurrentUser } from "./redux/User/actions";
 import { connect } from "react-redux";
+import WithAuth from "./hoc/withAuth";
 
-class App extends Component {
-  authListener = null;
-
-  componentDidMount() {
-    const { setCurrentUser } = this.props;
-
-    this.authListener = auth.onAuthStateChanged(async (userAuth) => {
+const App = (props) => {
+  const { setCurrentUser, currentUser } = props;
+  useEffect(() => {
+    const authListener = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         try {
           const userRef = await handleUserProfile(userAuth);
@@ -37,63 +36,61 @@ class App extends Component {
         setCurrentUser(userAuth);
       }
     });
-  }
 
-  componentWillUnmount() {
-    this.authListener();
-  }
+    return () => {
+      authListener();
+    };
+  }, []);
 
-  render() {
-    const { currentUser } = this.props;
-
-    return (
-      <div className="App">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <HomepageLayout>
-                <Homepage />
-              </HomepageLayout>
-            }
-          />
-          <Route
-            path="/registration"
-            element={
-              currentUser ? (
-                <Navigate to="/" />
-              ) : (
-                <MainLayout>
-                  <Registration />
-                </MainLayout>
-              )
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              currentUser ? (
-                <Navigate to="/" />
-              ) : (
-                <MainLayout>
-                  <Login />
-                </MainLayout>
-              )
-            }
-          />
-          <Route
-            path="/password-reset"
-            element={
+  return (
+    <div className="App">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomepageLayout>
+              <Homepage />
+            </HomepageLayout>
+          }
+        />
+        <Route
+          path="/registration"
+          element={
+            <MainLayout>
+              <Registration />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <MainLayout>
+              <Login />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/password-reset"
+          element={
+            <MainLayout>
+              <PasswordReset />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <WithAuth>
               <MainLayout>
-                <PasswordReset />
+                <Dashboard />
               </MainLayout>
-            }
-          />
-        </Routes>
-      </div>
-    );
-  }
-}
+            </WithAuth>
+          }
+        />
+      </Routes>
+    </div>
+  );
+};
 
 const mapStateToProps = ({ user }) => ({
   currentUser: user.currentUser,
