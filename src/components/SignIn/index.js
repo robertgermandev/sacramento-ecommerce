@@ -1,33 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  signInUser,
+  resetSignInStatus,
+  signInWithGoogle,
+} from "../../redux/User/actions";
 import { Link, useNavigate } from "react-router-dom";
 import "./styles.scss";
 import Button from "../forms/Button";
 import FormInput from "../forms/FormInput";
-import { signInWithGoogle, auth } from "./../../firebase/utlis";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./../../firebase/utlis";
 import AuthWrapper from "../AuthWrapper";
 import GoogleIcon from "./../../assets/google.png";
+import { createSelector } from "reselect";
+
+const selectUser = (state) => state.user;
+
+const selectSignInSuccess = createSelector(
+  [selectUser],
+  (user) => user.signInSuccess
+);
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const signInSuccess = useSelector(selectSignInSuccess);
+
+  useEffect(() => {
+    if (signInSuccess) {
+      resetFormState();
+      dispatch(resetSignInStatus());
+      navigate("/");
+    }
+  }, [signInSuccess]);
 
   const resetFormState = () => {
     setEmail("");
     setPassword("");
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(signInUser({ auth, email, password }));
+  };
 
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      resetFormState();
-      navigate("/");
-    } catch (err) {
-      alert(err);
-    }
+  const handleGoogleSignIn = () => {
+    dispatch(signInWithGoogle({ auth }));
   };
 
   const configAuthWrapper = {
@@ -55,7 +75,7 @@ const SignIn = () => {
           <Button type="submit">Log in</Button>
           <div className="socialSignin">
             <div className="row">
-              <Button onClick={signInWithGoogle}>
+              <Button onClick={handleGoogleSignIn}>
                 <img src={GoogleIcon} alt="google-icon" className="icon" />
               </Button>
             </div>

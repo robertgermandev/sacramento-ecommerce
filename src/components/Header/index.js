@@ -3,9 +3,19 @@ import "./styles.scss";
 import Logo from "./../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { auth } from "./../../firebase/utlis";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
+import { createSelector } from "reselect";
 
-const Header = ({ currentUser = null }) => {
+const selectUser = (state) => state.user;
+
+const selectCurrentUser = createSelector(
+  [selectUser],
+  (user) => user.currentUser
+);
+
+const Header = (props) => {
+  const currentUser = useSelector(selectCurrentUser);
+
   return (
     <header className="header">
       <div className="wrap">
@@ -42,8 +52,4 @@ const Header = ({ currentUser = null }) => {
   );
 };
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
-});
-
-export default connect(mapStateToProps, null)(Header);
+export default Header;

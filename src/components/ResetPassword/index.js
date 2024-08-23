@@ -1,35 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles.scss";
 import AuthWrapper from "./../AuthWrapper";
 import FormInput from "./../forms/FormInput";
 import Button from "./../forms/Button";
 import { auth } from "./../../firebase/utlis";
-import { sendPasswordResetEmail } from "firebase/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { resetPassowrd, resetSignInStatus } from "../../redux/User/actions";
+import { createSelector } from "reselect";
+
+const selectUser = (state) => state.user;
+
+const selectResetPasswordSuccess = createSelector(
+  [selectUser],
+  (user) => user.resetPasswordSuccess
+);
+
+const selectResetPasswordError = createSelector(
+  [selectUser],
+  (user) => user.resetPasswordError
+);
 
 const ResetPassword = () => {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const resetPasswordSuccess = useSelector(selectResetPasswordSuccess);
+  const resetPasswordError = useSelector(selectResetPasswordError);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const config = {
-        url: "http://localhost:3002/login",
-      };
-
-      await sendPasswordResetEmail(auth, email, config)
-        .then(() => {
-          navigate("/login");
-        })
-        .catch((err) => {
-          setErrors(err);
-        });
-    } catch (err) {
-      alert(err);
+  useEffect(() => {
+    if (resetPasswordSuccess) {
+      dispatch(resetSignInStatus());
+      navigate("/login");
     }
+  }, [resetPasswordSuccess]);
+
+  useEffect(() => {
+    if (Array.isArray(resetPasswordError) && resetPasswordError.length > 0) {
+      setErrors(resetPasswordError);
+    }
+  }, [resetPasswordError]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(resetPassowrd({ auth, email }));
   };
 
   const configWrapper = {
