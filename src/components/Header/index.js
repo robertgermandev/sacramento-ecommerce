@@ -2,9 +2,9 @@ import React from "react";
 import "./styles.scss";
 import Logo from "./../../assets/logo.png";
 import { Link } from "react-router-dom";
-import { auth } from "./../../firebase/utlis";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { createSelector } from "reselect";
+import { signOutUserStart } from "../../redux/User/actions";
 
 const selectUser = (state) => state.user;
 
@@ -15,6 +15,11 @@ const selectCurrentUser = createSelector(
 
 const Header = (props) => {
   const currentUser = useSelector(selectCurrentUser);
+  const dispatch = useDispatch();
+
+  const signOut = () => {
+    dispatch(signOutUserStart());
+  };
 
   return (
     <header className="header">
@@ -32,7 +37,7 @@ const Header = (props) => {
                 <Link to="/dashboard">my account</Link>
               </li>
               <li>
-                <span onClick={() => auth.signOut()}>log out</span>
+                <span onClick={() => signOut()}>log out</span>
               </li>
             </ul>
           )}

@@ -4,9 +4,8 @@ import "./styles.scss";
 import AuthWrapper from "./../AuthWrapper";
 import FormInput from "./../forms/FormInput";
 import Button from "./../forms/Button";
-import { auth } from "./../../firebase/utlis";
 import { useDispatch, useSelector } from "react-redux";
-import { resetPassowrd, resetSignInStatus } from "../../redux/User/actions";
+import { resetPassowrdStart, resetUserState } from "../../redux/User/actions";
 import { createSelector } from "reselect";
 
 const selectUser = (state) => state.user;
@@ -16,10 +15,7 @@ const selectResetPasswordSuccess = createSelector(
   (user) => user.resetPasswordSuccess
 );
 
-const selectResetPasswordError = createSelector(
-  [selectUser],
-  (user) => user.resetPasswordError
-);
+const selectUserError = createSelector([selectUser], (user) => user.userErr);
 
 const ResetPassword = () => {
   const [email, setEmail] = useState("");
@@ -27,24 +23,24 @@ const ResetPassword = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const resetPasswordSuccess = useSelector(selectResetPasswordSuccess);
-  const resetPasswordError = useSelector(selectResetPasswordError);
+  const userErr = useSelector(selectUserError);
 
   useEffect(() => {
     if (resetPasswordSuccess) {
-      dispatch(resetSignInStatus());
+      dispatch(resetUserState());
       navigate("/login");
     }
   }, [resetPasswordSuccess]);
 
   useEffect(() => {
-    if (Array.isArray(resetPasswordError) && resetPasswordError.length > 0) {
-      setErrors(resetPasswordError);
+    if (Array.isArray(userErr) && userErr.length > 0) {
+      setErrors(userErr);
     }
-  }, [resetPasswordError]);
+  }, [userErr]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(resetPassowrd({ auth, email }));
+    dispatch(resetPassowrdStart({ email }));
   };
 
   const configWrapper = {

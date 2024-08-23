@@ -6,19 +6,16 @@ import { auth } from "../../firebase/utlis";
 import AuthWrapper from "../AuthWrapper";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { signUpUser, resetSignInStatus } from "../../redux/User/actions";
+import { signUpUserStart } from "../../redux/User/actions";
 import { createSelector } from "reselect";
 
 const selectUser = (state) => state.user;
 
-const selectSignUpSuccess = createSelector(
+const selectCurrentUser = createSelector(
   [selectUser],
-  (user) => user.signUpSuccess
+  (user) => user.currentUser
 );
-const selectSignUpError = createSelector(
-  [selectUser],
-  (user) => user.signUpError
-);
+const selectUserErr = createSelector([selectUser], (user) => user.userErr);
 
 const SignUp = (props) => {
   const [displayName, setDisplayName] = useState("");
@@ -28,22 +25,21 @@ const SignUp = (props) => {
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const signUpSuccess = useSelector(selectSignUpSuccess);
-  const signUpError = useSelector(selectSignUpError);
+  const currentUser = useSelector(selectCurrentUser);
+  const userErr = useSelector(selectUserErr);
 
   useEffect(() => {
-    if (signUpSuccess) {
+    if (currentUser) {
       resetFormState();
-      dispatch(resetSignInStatus());
       navigate("/");
     }
-  }, [signUpSuccess]);
+  }, [currentUser]);
 
   useEffect(() => {
-    if (Array.isArray(signUpError) && signUpError.length > 0) {
-      setErrors(signUpError);
+    if (Array.isArray(userErr) && userErr.length > 0) {
+      setErrors(userErr);
     }
-  }, [signUpError]);
+  }, [userErr]);
 
   const resetFormState = () => {
     setDisplayName("");
@@ -56,7 +52,7 @@ const SignUp = (props) => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     dispatch(
-      signUpUser({ auth, displayName, email, password, confirmPassword })
+      signUpUserStart({ auth, displayName, email, password, confirmPassword })
     );
   };
 
