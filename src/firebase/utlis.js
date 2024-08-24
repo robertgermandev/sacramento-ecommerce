@@ -25,11 +25,14 @@ export const handleUserProfile = async ({ userAuth, additionalData }) => {
     const { displayName, email } = userAuth;
     const createdDate = new Date();
 
+    const userRoles = ['user']
+
     try {
       await setDoc(userRef, {
         displayName,
         email,
         createdDate,
+        userRoles,
         ...additionalData,
       });
     } catch (err) {
