@@ -12,7 +12,7 @@ import { createSelector } from "reselect";
 
 const selectUser = (state) => state.user;
 
-const selectSignInSuccess = createSelector(
+const selectCurrentUser = createSelector(
   [selectUser],
   (user) => user.currentUser
 );
@@ -22,7 +22,7 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const currentUser = useSelector(selectSignInSuccess);
+  const currentUser = useSelector(selectCurrentUser);
 
   useEffect(() => {
     if (currentUser) {

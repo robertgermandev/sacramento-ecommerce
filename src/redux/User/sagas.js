@@ -15,7 +15,7 @@ import {
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  signInWithPopup
+  signInWithPopup,
 } from "firebase/auth";
 import { getDoc } from "firebase/firestore";
 import { handleResetPasswordAPI } from "./helpers";
@@ -34,7 +34,7 @@ export function* getSnapshotFromUserAuth(user, additionalData = {}) {
       })
     );
   } catch (err) {
-    alert(err);
+    console.log("err", err);
   }
 }
 
@@ -43,7 +43,7 @@ export function* emailSignIn({ payload: { email, password } }) {
     const { user } = yield signInWithEmailAndPassword(auth, email, password);
     yield getSnapshotFromUserAuth(user);
   } catch (err) {
-    alert(err);
+    console.log("err", err);
   }
 }
 
@@ -57,7 +57,7 @@ export function* isUserAuthenticated() {
     if (!userAuth) return;
     yield getSnapshotFromUserAuth(userAuth);
   } catch (err) {
-    alert(err);
+    console.log("err", err);
   }
 }
 
@@ -70,7 +70,7 @@ export function* signOutUser() {
     yield auth.signOut();
     yield put(signOutUserSuccess());
   } catch (err) {
-    alert(err);
+    console.log("err", err);
   }
 }
 
@@ -98,7 +98,7 @@ export function* signUpUser({
     const additionalData = { displayName };
     yield getSnapshotFromUserAuth(user, additionalData);
   } catch (err) {
-    alert(err);
+    console.log("err", err);
   }
 }
 
@@ -124,7 +124,7 @@ export function* googleSignInStart() {
     const { user } = yield signInWithPopup(auth, GoogleProvider);
     yield getSnapshotFromUserAuth(user);
   } catch (err) {
-    alert(err);
+    console.log("err", err);
   }
 }
 

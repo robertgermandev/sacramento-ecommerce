@@ -16,16 +16,14 @@ export const handleUserProfile = async ({ userAuth, additionalData }) => {
   if (!userAuth) return;
 
   const { uid } = userAuth;
-
   const userRef = doc(firestore, `users/${uid}`);
-
   const snapshot = await getDoc(userRef);
 
   if (!snapshot.exists()) {
     const { displayName, email } = userAuth;
     const createdDate = new Date();
 
-    const userRoles = ['user']
+    const userRoles = ["user"];
 
     try {
       await setDoc(userRef, {
