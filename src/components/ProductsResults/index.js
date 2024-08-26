@@ -6,6 +6,7 @@ import { createSelector } from "reselect";
 import Product from "./Product";
 import FormSelect from "./../forms/FormSelect";
 import { useNavigate, useParams } from "react-router-dom";
+import LoadMore from "../LoadMore";
 
 const selectProducts = (state) => state.productsData;
 
@@ -20,8 +21,9 @@ const ProductsResults = ({}) => {
   const navigate = useNavigate();
   const { filterType } = useParams();
 
+  const { data, queryDoc, isLastPage } = products;
+
   useEffect(() => {
-    console.log("filterType", filterType);
     dispatch(fetchProductsStart({ filterType }));
   }, [filterType]);
 
@@ -59,6 +61,20 @@ const ProductsResults = ({}) => {
     handleChange: handleFilter,
   };
 
+  const handleLoadMore = () => {
+    dispatch(
+      fetchProductsStart({
+        filterType,
+        startAfterDoc: queryDoc,
+        persistProducts: data,
+      })
+    );
+  };
+
+  const configLoadMoreBtn = {
+    onLoadMoreEvt: handleLoadMore,
+  };
+
   return (
     <div className="products">
       <h1>Browse products</h1>
@@ -83,6 +99,7 @@ const ProductsResults = ({}) => {
           return <Product {...configProduct} />;
         })}
       </div>
+      {!isLastPage && <LoadMore {...configLoadMoreBtn} />}
     </div>
   );
 };
