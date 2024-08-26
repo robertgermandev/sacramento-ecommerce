@@ -17,6 +17,7 @@ import AdminToolbar from "./components/AdminToolbar";
 import AdminLayout from "./layouts/AdminLayout";
 import DashBoardLayout from "./layouts/DashboardLayout";
 import Search from "./pages/Search";
+import ProductDetails from "./pages/ProductDetails";
 
 const App = (props) => {
   const dispatch = useDispatch();
@@ -51,6 +52,14 @@ const App = (props) => {
           element={
             <MainLayout>
               <Search />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/product/:productID"
+          element={
+            <MainLayout>
+              <ProductDetails />
             </MainLayout>
           }
         />

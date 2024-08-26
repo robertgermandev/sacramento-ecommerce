@@ -10,9 +10,9 @@ import FormInput from "./../../components/forms/FormInput";
 import FormSelect from "./../../components/forms/FormSelect";
 import Button from "./../../components/forms/Button";
 import LoadMore from "./../../components/LoadMore";
-import { CKEditor } from "ckeditor4-react";
 import "./styles.scss";
 import { createSelector } from "reselect";
+import { Editor } from "@tinymce/tinymce-react";
 
 const selectProducts = (state) => state.productsData;
 
@@ -77,6 +77,10 @@ const Admin = (props) => {
     );
   };
 
+  const handleProductDesc = (content) => {
+    setProductDesc(content);
+  };
+
   const configLoadMore = {
     onLoadMoreEvt: handleLoadMore,
   };
@@ -133,8 +137,23 @@ const Admin = (props) => {
               handleChange={(e) => setProductPrice(e.target.value)}
             />
 
-            <CKEditor
-              onChange={(evt) => setProductDesc(evt.editor.getData())}
+            <Editor
+              apiKey="r25icp4eu2q478r4to50ho8rvnn2zfjtyn2jh3qwpgljvruk"
+              initialValue="<p>Add the product description</p>"
+              init={{
+                height: 300,
+                menubar: false,
+                plugins: [
+                  "advlist autolink lists link image charmap print preview anchor",
+                  "searchreplace visualblocks code fullscreen",
+                  "insertdatetime media table paste code help wordcount",
+                ],
+                toolbar:
+                  "undo redo | formatselect | bold italic backcolor | \
+          alignleft aligncenter alignright alignjustify | \
+          bullist numlist outdent indent | removeformat | help",
+              }}
+              onEditorChange={handleProductDesc}
             />
 
             <br />
