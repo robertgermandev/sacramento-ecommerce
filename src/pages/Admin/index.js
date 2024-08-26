@@ -127,10 +127,8 @@ const Admin = (props) => {
 
             <FormInput
               label="Price"
-              type="number"
-              min="0.00"
-              max="10000.00"
-              step="0.01"
+              type="text"
+              min="0,00"
               value={productPrice}
               handleChange={(e) => setProductPrice(e.target.value)}
             />
@@ -174,7 +172,7 @@ const Admin = (props) => {
                               <img className="thumb" src={productThumbnail} />
                             </td>
                             <td>{productName}</td>
-                            <td>£{productPrice}</td>
+                            <td>€{productPrice}</td>
                             <td>
                               <Button
                                 onClick={() =>
