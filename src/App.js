@@ -16,6 +16,7 @@ import WithAdminAuth from "./hoc/withAdminAuth";
 import AdminToolbar from "./components/AdminToolbar";
 import AdminLayout from "./layouts/AdminLayout";
 import DashBoardLayout from "./layouts/DashboardLayout";
+import Search from "./pages/Search";
 
 const App = (props) => {
   const dispatch = useDispatch();
@@ -34,6 +35,14 @@ const App = (props) => {
             <HomepageLayout>
               <Homepage />
             </HomepageLayout>
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <MainLayout>
+              <Search />
+            </MainLayout>
           }
         />
         <Route
