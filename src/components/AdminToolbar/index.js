@@ -1,16 +1,9 @@
 import React from "react";
 import "./styles.scss";
 import { Link } from "react-router-dom";
-import { createSelector } from "reselect";
 import { useSelector } from "react-redux";
 import { checkUserRole } from "../../Utils";
-
-const selectUser = (state) => state.user;
-
-const selectCurrentUser = createSelector(
-  [selectUser],
-  (user) => user.currentUser
-);
+import { selectCurrentUser } from "../../redux/User/selectors";
 
 const AdminToolbar = (props) => {
   const currentUser = useSelector(selectCurrentUser);

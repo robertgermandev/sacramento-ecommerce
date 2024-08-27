@@ -11,15 +11,8 @@ import FormSelect from "./../../components/forms/FormSelect";
 import Button from "./../../components/forms/Button";
 import LoadMore from "./../../components/LoadMore";
 import "./styles.scss";
-import { createSelector } from "reselect";
 import { Editor } from "@tinymce/tinymce-react";
-
-const selectProducts = (state) => state.productsData;
-
-const selectProductsData = createSelector(
-  [selectProducts],
-  (productsData) => productsData.products
-);
+import { selectProductsData } from "../../redux/Products/selectors";
 
 const Admin = (props) => {
   const products = useSelector(selectProductsData);

@@ -2,18 +2,11 @@ import React, { useEffect } from "react";
 import "./styles.scss";
 import { fetchProductsStart } from "../../redux/Products/actions";
 import { useSelector, useDispatch } from "react-redux";
-import { createSelector } from "reselect";
 import Product from "./Product";
 import FormSelect from "./../forms/FormSelect";
 import { useNavigate, useParams } from "react-router-dom";
 import LoadMore from "../LoadMore";
-
-const selectProducts = (state) => state.productsData;
-
-const selectProductsData = createSelector(
-  [selectProducts],
-  (productsData) => productsData.products
-);
+import { selectProductsData } from "../../redux/Products/selectors";
 
 const ProductsResults = ({}) => {
   const products = useSelector(selectProductsData);

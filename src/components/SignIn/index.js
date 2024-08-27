@@ -8,14 +8,7 @@ import FormInput from "../forms/FormInput";
 import { auth } from "./../../firebase/utlis";
 import AuthWrapper from "../AuthWrapper";
 import GoogleIcon from "./../../assets/google.png";
-import { createSelector } from "reselect";
-
-const selectUser = (state) => state.user;
-
-const selectCurrentUser = createSelector(
-  [selectUser],
-  (user) => user.currentUser
-);
+import { selectCurrentUser } from "../../redux/User/selectors";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");

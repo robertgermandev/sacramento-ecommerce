@@ -1,15 +1,8 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { createSelector } from "reselect";
 import { checkUserRole } from "../Utils";
 import { useNavigate } from "react-router-dom";
-
-const selectUser = (state) => state.user;
-
-const selectCurrentUser = createSelector(
-  [selectUser],
-  (user) => user.currentUser
-);
+import { selectCurrentUser } from "../redux/User/selectors";
 
 const useAdminAuth = (props) => {
   const currentUser = useSelector(selectCurrentUser);

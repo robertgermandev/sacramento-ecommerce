@@ -7,15 +7,7 @@ import AuthWrapper from "../AuthWrapper";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signUpUserStart } from "../../redux/User/actions";
-import { createSelector } from "reselect";
-
-const selectUser = (state) => state.user;
-
-const selectCurrentUser = createSelector(
-  [selectUser],
-  (user) => user.currentUser
-);
-const selectUserErr = createSelector([selectUser], (user) => user.userErr);
+import { selectCurrentUser, selectUserError } from "../../redux/User/selectors";
 
 const SignUp = (props) => {
   const [displayName, setDisplayName] = useState("");
@@ -26,7 +18,7 @@ const SignUp = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
-  const userErr = useSelector(selectUserErr);
+  const userErr = useSelector(selectUserError);
 
   useEffect(() => {
     if (currentUser) {

@@ -1,12 +1,12 @@
 import productsTypes from "./types";
 import productTypes from "./types";
 
-const INITIAL_STATE = {
+const initialState = {
   products: [],
   product: {},
 };
 
-const productsReducer = (state = INITIAL_STATE, action) => {
+const productsReducer = (state = initialState, action) => {
   switch (action.type) {
     case productTypes.SET_PRODUCTS:
       return {

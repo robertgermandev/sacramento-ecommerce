@@ -6,16 +6,10 @@ import FormInput from "./../forms/FormInput";
 import Button from "./../forms/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { resetPassowrdStart, resetUserState } from "../../redux/User/actions";
-import { createSelector } from "reselect";
-
-const selectUser = (state) => state.user;
-
-const selectResetPasswordSuccess = createSelector(
-  [selectUser],
-  (user) => user.resetPasswordSuccess
-);
-
-const selectUserError = createSelector([selectUser], (user) => user.userErr);
+import {
+  selectResetPasswordSuccess,
+  selectUserError,
+} from "../../redux/User/selectors";
 
 const ResetPassword = () => {
   const [email, setEmail] = useState("");

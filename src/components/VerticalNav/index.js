@@ -2,14 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import UserProfile from "./../UserProfile";
 import "./styles.scss";
-import { createSelector } from "reselect";
-
-const selectUser = (state) => state.user;
-
-const selectCurrentUser = createSelector(
-  [selectUser],
-  (user) => user.currentUser
-);
+import { selectCurrentUser } from "../../redux/User/selectors";
 
 const VerticalNav = ({ children }) => {
   const currentUser = useSelector(selectCurrentUser);

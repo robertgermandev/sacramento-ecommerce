@@ -2,17 +2,10 @@ import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductStart, setProduct } from "./../../redux/Products/actions";
-// import { addProduct } from "./../../redux/Cart/actions";
+import { addProduct } from "./../../redux/Cart/actions";
 import Button from "./../forms/Button";
 import "./styles.scss";
-import { createSelector } from "reselect";
-
-const selectProduct = (state) => state.productsData;
-
-const selectProductData = createSelector(
-  [selectProduct],
-  (productsData) => productsData.product
-);
+import { selectProductData } from "../../redux/Products/selectors";
 
 const ProductCard = ({}) => {
   const dispatch = useDispatch();
@@ -32,8 +25,8 @@ const ProductCard = ({}) => {
 
   const handleAddToCart = (product) => {
     if (!product) return;
-    // dispatch(addProduct(product));
-    navigate("/cart");
+    dispatch(addProduct(product));
+    // navigate("/cart");
   };
 
   const configAddToCartBtn = {
