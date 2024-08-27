@@ -20,6 +20,7 @@ import Search from "./pages/Search";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Payment from "./pages/Payment";
+import Order from "./pages/Order";
 
 const App = (props) => {
   const dispatch = useDispatch();
@@ -113,6 +114,16 @@ const App = (props) => {
             <WithAuth>
               <DashBoardLayout>
                 <Dashboard />
+              </DashBoardLayout>
+            </WithAuth>
+          }
+        />
+        <Route
+          path="/order/:orderID"
+          element={
+            <WithAuth>
+              <DashBoardLayout>
+                <Order />
               </DashBoardLayout>
             </WithAuth>
           }

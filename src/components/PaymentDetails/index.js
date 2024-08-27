@@ -8,10 +8,12 @@ import { apiInstance } from "../../Utils";
 import {
   selectCartTotal,
   selectCartItemsCount,
+  selectCartItems,
 } from "../../redux/Cart/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../../redux/Cart/actions";
 import { useNavigate } from "react-router-dom";
+import { saveOrderHistory } from "../../redux/Orders/actions";
 
 const initialAddressState = {
   line1: "",
@@ -27,6 +29,7 @@ const PaymentDetails = () => {
   const stripe = useStripe();
   const cartTotal = useSelector(selectCartTotal);
   const itemCount = useSelector(selectCartItemsCount);
+  const cartItems = useSelector(selectCartItems);
   const elements = useElements();
   const [billingAddress, setBillingAddress] = useState({
     ...initialAddressState,
@@ -39,7 +42,7 @@ const PaymentDetails = () => {
 
   useEffect(() => {
     if (itemCount < 1) {
-      navigate("/");
+      navigate("/dashboard");
     }
   }, [itemCount]);
 
@@ -107,7 +110,27 @@ const PaymentDetails = () => {
                 payment_method: paymentMethod.id,
               })
               .then(({ paymentIntent }) => {
-                dispatch(clearCart());
+                const configOrder = {
+                  orderTotal: cartTotal,
+                  orderItems: cartItems.map((item) => {
+                    const {
+                      documentID,
+                      productName,
+                      productThumbnail,
+                      productPrice,
+                      quantity,
+                    } = item;
+
+                    return {
+                      documentID,
+                      productName,
+                      productThumbnail,
+                      productPrice,
+                      quantity,
+                    };
+                  }),
+                };
+                dispatch(saveOrderHistory(configOrder));
               });
           });
       });
