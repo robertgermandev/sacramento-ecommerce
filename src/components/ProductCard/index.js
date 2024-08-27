@@ -26,7 +26,7 @@ const ProductCard = ({}) => {
   const handleAddToCart = (product) => {
     if (!product) return;
     dispatch(addProduct(product));
-    // navigate("/cart");
+    navigate("/cart");
   };
 
   const configAddToCartBtn = {
