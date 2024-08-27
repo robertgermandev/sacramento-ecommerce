@@ -9,6 +9,16 @@
     flex-wrap: wrap;
     margin: 3rem -10px 0;
   }
+
+  h1 {
+    display: block;
+    width: 100%;
+  }
+
+  h1,
+  p {
+    text-align: center;
+  }
 }
 
 .product {

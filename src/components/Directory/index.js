@@ -2,6 +2,7 @@ import React from "react";
 import ShopSailBoats from "../../assets/shopSailBoats.jpg";
 import ShopYachts from "../../assets/shopYacths.jpg";
 import "./styles.scss";
+import { Link } from "react-router-dom";
 
 const Directory = (props) => {
   return (
@@ -11,11 +12,11 @@ const Directory = (props) => {
           className="item"
           style={{ backgroundImage: `url(${ShopSailBoats})` }}
         >
-          <a>Sailing boats</a>
+          <Link to="/search/sailing-boats">Sailing boats</Link>
         </div>
 
         <div className="item" style={{ backgroundImage: `url(${ShopYachts})` }}>
-          <a>Yachts</a>
+          <Link to="/search/yachts">Yachts</Link>
         </div>
       </div>
     </div>

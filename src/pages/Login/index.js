@@ -3,11 +3,7 @@ import "./styles.scss";
 import SignIn from "../../components/SignIn";
 
 const Login = (props) => {
-  return (
-    <section className="login">
-      <SignIn />
-    </section>
-  );
+  return <SignIn />;
 };
 
 export default Login;
