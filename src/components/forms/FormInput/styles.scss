@@ -3,7 +3,8 @@
   flex-direction: column;
   margin-bottom: 20px;
 
-  input {
+  input,
+  &.checkout-input select {
     display: block;
     width: 100%;
     font-size: 1.5rem;

@@ -1,0 +1,131 @@
+[debug] [2024-08-27T14:16:44.644Z] ----------------------------------------------------------------------
+[debug] [2024-08-27T14:16:44.645Z] Command:       /opt/homebrew/Cellar/node@18/18.20.4/bin/node /opt/homebrew/bin/firebase emulators:start --only functions
+[debug] [2024-08-27T14:16:44.645Z] CLI Version:   13.15.4
+[debug] [2024-08-27T14:16:44.645Z] Platform:      darwin
+[debug] [2024-08-27T14:16:44.646Z] Node Version:  v18.20.4
+[debug] [2024-08-27T14:16:44.646Z] Time:          Tue Aug 27 2024 17:16:44 GMT+0300 (Eastern European Summer Time)
+[debug] [2024-08-27T14:16:44.647Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-08-27T14:16:44.707Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-08-27T14:16:44.707Z] > authorizing via signed-in user (robertgermandev@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2024-08-27T14:16:44.936Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-08-27T14:16:44.936Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-08-27T14:16:44.940Z] [hub] writing locator at /var/folders/43/xqll1qvd75b94d1959955hfc0000gn/T/hub-sacramento-ecommerce.json
+[debug] [2024-08-27T14:16:45.093Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-08-27T14:16:45.094Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-08-27T14:16:45.094Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2024-08-27T14:16:45.095Z] defaultcredentials: writing to file /Users/robertgerman/.config/firebase/robertgermandev_gmail_com_application_default_credentials.json
+[debug] [2024-08-27T14:16:45.098Z] Setting GAC to /Users/robertgerman/.config/firebase/robertgermandev_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/robertgerman/.config/firebase/robertgermandev_gmail_com_application_default_credentials.json"}}
+[debug] [2024-08-27T14:16:45.099Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sacramento-ecommerce/adminSdkConfig [none]
+[debug] [2024-08-27T14:16:45.455Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sacramento-ecommerce/adminSdkConfig 200
+[debug] [2024-08-27T14:16:45.455Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sacramento-ecommerce/adminSdkConfig {"projectId":"sacramento-ecommerce","storageBucket":"sacramento-ecommerce.appspot.com"}
+[debug] [2024-08-27T14:16:45.469Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-08-27T14:16:45.469Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-08-27T14:16:45.469Z] Starting Emulator UI with command {"binary":"node","args":["/Users/robertgerman/.cache/firebase/emulators/ui-v1.13.0/server/server.mjs"],"optionalArgs":[],"joinArgs":false,"shell":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/robertgerman/.cache/firebase/emulators/ui-v1.13.0/server/server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false,\"shell\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2024-08-27T14:16:45.545Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2024-08-27T14:16:45.546Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "/Users/robertgerman/sacramento-ecommerce/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/robertgerman/sacramento-ecommerce/functions\" for Cloud Functions..."}}
+[debug] [2024-08-27T14:16:45.679Z] Validating nodejs source
+[debug] [2024-08-27T14:16:46.081Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.0",
+    "stripe": "^16.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-08-27T14:16:46.082Z] Building nodejs source
+[debug] [2024-08-27T14:16:46.082Z] Failed to find version of module node: reached end of search path /Users/robertgerman/sacramento-ecommerce/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-08-27T14:16:46.083Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-08-27T14:16:46.086Z] Found firebase-functions binary at '/Users/robertgerman/sacramento-ecommerce/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8476
+
+[debug] [2024-08-27T14:16:46.728Z] Got response from /__/functions.yaml {"endpoints":{"api":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
+[info] ✔  functions[us-central1-api]: http function initialized (http://127.0.0.1:5001/sacramento-ecommerce/us-central1/api). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/sacramento-ecommerce/us-central1/api)."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2024-08-27T14:17:03.930Z] [work-queue] {"queuedWork":["/sacramento-ecommerce/us-central1/api/payments/create-2024-08-27T14:17:03.929Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-08-27T14:17:03.930Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/sacramento-ecommerce/us-central1/api/payments/create-2024-08-27T14:17:03.929Z"],"workRunningCount":1}
+[debug] [2024-08-27T14:17:03.931Z] Accepted request OPTIONS /sacramento-ecommerce/us-central1/api/payments/create --> us-central1-api
+[debug] [2024-08-27T14:17:03.934Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-08-27T14:17:03.934Z] [functions] Got req.url=/sacramento-ecommerce/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/sacramento-ecommerce/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2024-08-27T14:17:03.938Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2024-08-27T14:17:03.939Z] [worker-pool] Adding worker with key us-central1-api, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=1"}}
+[debug] [2024-08-27T14:17:04.670Z] [runtime-status] [89906] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.4.0","resolution":"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [89906] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.4.0\",\"resolution\":\"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2024-08-27T14:17:04.670Z] [runtime-status] [89906] Resolved module firebase-functions {"declared":true,"installed":true,"version":"5.1.0","resolution":"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [89906] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"5.1.0\",\"resolution\":\"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2024-08-27T14:17:04.670Z] [runtime-status] [89906] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [89906] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2024-08-27T14:17:04.671Z] [runtime-status] [89906] Resolved module firebase-functions {"declared":true,"installed":true,"version":"5.1.0","resolution":"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [89906] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"5.1.0\",\"resolution\":\"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2024-08-27T14:17:04.788Z] [runtime-status] [89906] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [89906] Checked functions.config() {\"config\":{}}"}}
+[debug] [2024-08-27T14:17:04.788Z] [runtime-status] [89906] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"5.1.0","resolution":"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-functions/lib/v1/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [89906] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"5.1.0\",\"resolution\":\"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-functions/lib/v1/index.js\"}}"}}
+[debug] [2024-08-27T14:17:04.788Z] [runtime-status] [89906] Resolved module firebase-functions {"declared":true,"installed":true,"version":"5.1.0","resolution":"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [89906] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"5.1.0\",\"resolution\":\"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2024-08-27T14:17:04.789Z] [runtime-status] [89906] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.4.0","resolution":"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [89906] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.4.0\",\"resolution\":\"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2024-08-27T14:17:04.790Z] [runtime-status] [89906] Resolved module firebase-functions {"declared":true,"installed":true,"version":"5.1.0","resolution":"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [89906] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"5.1.0\",\"resolution\":\"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2024-08-27T14:17:04.791Z] [runtime-status] [89906] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"12.4.0","resolution":"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [89906] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"12.4.0\",\"resolution\":\"/Users/robertgerman/sacramento-ecommerce/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2024-08-27T14:17:04.888Z] [runtime-status] [89906] Functions runtime initialized. {"cwd":"/Users/robertgerman/sacramento-ecommerce/functions","node_version":"18.20.4"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [89906] Functions runtime initialized. {\"cwd\":\"/Users/robertgerman/sacramento-ecommerce/functions\",\"node_version\":\"18.20.4\"}"}}
+[debug] [2024-08-27T14:17:04.889Z] [runtime-status] [89906] Listening to port: /var/folders/43/xqll1qvd75b94d1959955hfc0000gn/T/fire_emu_57c96641f1e982e3.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [89906] Listening to port: /var/folders/43/xqll1qvd75b94d1959955hfc0000gn/T/fire_emu_57c96641f1e982e3.sock"}}
+[debug] [2024-08-27T14:17:04.959Z] [worker-us-central1-api-e69a4b99-161b-40bf-b920-75816aec783a]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-e69a4b99-161b-40bf-b920-75816aec783a]: IDLE"}}
+[debug] [2024-08-27T14:17:04.960Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-08-27T14:17:04.960Z] [worker-us-central1-api-e69a4b99-161b-40bf-b920-75816aec783a]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-e69a4b99-161b-40bf-b920-75816aec783a]: BUSY"}}
+[debug] [2024-08-27T14:17:04.963Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 2.865791ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 2.865791ms"}}
+[debug] [2024-08-27T14:17:04.964Z] [worker-us-central1-api-e69a4b99-161b-40bf-b920-75816aec783a]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-e69a4b99-161b-40bf-b920-75816aec783a]: IDLE"}}
+[debug] [2024-08-27T14:17:04.964Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-08-27T14:17:04.964Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-08-27T14:17:04.964Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-08-27T14:17:04.965Z] [work-queue] {"queuedWork":["/sacramento-ecommerce/us-central1/api/payments/create-2024-08-27T14:17:04.965Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-08-27T14:17:04.965Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/sacramento-ecommerce/us-central1/api/payments/create-2024-08-27T14:17:04.965Z"],"workRunningCount":1}
+[debug] [2024-08-27T14:17:04.965Z] Accepted request POST /sacramento-ecommerce/us-central1/api/payments/create --> us-central1-api
+[debug] [2024-08-27T14:17:04.966Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-08-27T14:17:04.966Z] [functions] Got req.url=/sacramento-ecommerce/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/sacramento-ecommerce/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2024-08-27T14:17:04.966Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-08-27T14:17:04.967Z] [worker-us-central1-api-e69a4b99-161b-40bf-b920-75816aec783a]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-e69a4b99-161b-40bf-b920-75816aec783a]: BUSY"}}
+[debug] [2024-08-27T14:17:05.491Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 524.5965ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 524.5965ms"}}
+[debug] [2024-08-27T14:17:05.492Z] [worker-us-central1-api-e69a4b99-161b-40bf-b920-75816aec783a]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-e69a4b99-161b-40bf-b920-75816aec783a]: IDLE"}}
+[debug] [2024-08-27T14:17:05.492Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-08-27T14:17:05.492Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-08-27T14:17:05.492Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
