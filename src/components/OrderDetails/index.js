@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { setOrderDetails } from "../../redux/Orders/actions";
+import { formatPrice } from "../../Utils";
 
 const columns = [
   {
@@ -38,7 +39,7 @@ const styles = {
 const formatText = (columnName, columnValue) => {
   switch (columnName) {
     case "productPrice":
-      return `€${columnValue}`;
+      return `€${formatPrice(columnValue)}`;
     case "productThumbnail":
       return <img src={columnValue} width={250} />;
     default:

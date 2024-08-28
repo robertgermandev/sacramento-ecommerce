@@ -5,6 +5,7 @@ import { selectCartItems, selectCartTotal } from "../../redux/Cart/selectors";
 import Button from "../forms/Button";
 import Item from "./Item";
 import { useNavigate } from "react-router-dom";
+import { formatPrice } from "../../Utils";
 
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
@@ -68,7 +69,7 @@ const Checkout = () => {
                 >
                   <tr align="right">
                     <td>
-                      <h3>Total: €{total}</h3>
+                      <h3>Total: €{formatPrice(total)}</h3>
                     </td>
                   </tr>
                   <tr>

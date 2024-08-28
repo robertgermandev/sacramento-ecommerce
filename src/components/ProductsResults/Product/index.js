@@ -3,6 +3,7 @@ import Button from "../../forms/Button/index";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../../redux/Cart/actions";
+import { formatPrice } from "../../../Utils";
 
 const Product = (product) => {
   const dispatch = useDispatch();
@@ -41,7 +42,7 @@ const Product = (product) => {
             </Link>
           </li>
           <li>
-            <span className="price">€{productPrice}</span>
+            <span className="price">€{formatPrice(productPrice)}</span>
           </li>
           <li>
             <div className="addToCartBtn">

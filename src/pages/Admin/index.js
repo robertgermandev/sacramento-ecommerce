@@ -13,6 +13,8 @@ import LoadMore from "./../../components/LoadMore";
 import "./styles.scss";
 import { Editor } from "@tinymce/tinymce-react";
 import { selectProductsData } from "../../redux/Products/selectors";
+import CurrencyInput, { formatValue } from "react-currency-input-field";
+import { formatPrice } from "../../Utils";
 
 const Admin = (props) => {
   const products = useSelector(selectProductsData);
@@ -92,7 +94,6 @@ const Admin = (props) => {
         <div className="addNewProductForm">
           <form onSubmit={handleSubmit}>
             <h2>Add new product</h2>
-
             <FormSelect
               label="Category"
               options={[
@@ -107,28 +108,30 @@ const Admin = (props) => {
               ]}
               handleChange={(e) => setProductCategory(e.target.value)}
             />
-
             <FormInput
               label="Name"
               type="text"
               value={productName}
               handleChange={(e) => setProductName(e.target.value)}
             />
-
             <FormInput
               label="Main image URL"
               type="url"
               value={productThumbnail}
               handleChange={(e) => setProductThumbnail(e.target.value)}
             />
-
-            <FormInput
-              label="Price"
-              type="text"
-              min="0,00"
-              value={productPrice}
-              handleChange={(e) => setProductPrice(e.target.value)}
-            />
+            <div className="formRow checkout-input">
+              <CurrencyInput
+                id="productPrice"
+                name="productPrice"
+                placeholder="Please enter the product price"
+                prefix="€"
+                decimalsLimit={2}
+                allowDecimals
+                intlConfig={{ locale: "en-US", currency: "EUR" }}
+                onValueChange={(value) => setProductPrice(value)}
+              />
+            </div>
 
             <Editor
               apiKey="r25icp4eu2q478r4to50ho8rvnn2zfjtyn2jh3qwpgljvruk"
@@ -148,9 +151,7 @@ const Admin = (props) => {
               }}
               onEditorChange={handleProductDesc}
             />
-
             <br />
-
             <Button type="submit">Add product</Button>
           </form>
         </div>
@@ -184,7 +185,7 @@ const Admin = (props) => {
                               <img className="thumb" src={productThumbnail} />
                             </td>
                             <td>{productName}</td>
-                            <td>€{productPrice}</td>
+                            <td>€{formatPrice(productPrice)}</td>
                             <td>
                               <Button
                                 onClick={() =>

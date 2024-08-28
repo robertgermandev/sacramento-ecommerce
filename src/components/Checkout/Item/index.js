@@ -5,6 +5,7 @@ import {
   addProduct,
   reduceCartItem,
 } from "../../../redux/Cart/actions";
+import { formatPrice } from "../../../Utils";
 
 const Item = (product) => {
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ const Item = (product) => {
               onClick={() => handleAddProduct(product)}
             >{` +`}</span>
           </td>
-          <td>€{productPrice}</td>
+          <td>€{formatPrice(productPrice)}</td>
           <td align="center">
             <span
               className="cartBtn"

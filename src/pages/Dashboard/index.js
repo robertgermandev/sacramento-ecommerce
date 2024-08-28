@@ -10,13 +10,13 @@ const Dashboard = (props) => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const orderHistory = useSelector(selectOrdersData);
-  
+
   useEffect(() => {
     dispatch(getUserOrderHistory(currentUser.id));
   }, []);
 
   return (
-    <div>
+    <div className="order-history">
       <h1>Order history</h1>
       <OrderHistory orders={orderHistory} />
     </div>

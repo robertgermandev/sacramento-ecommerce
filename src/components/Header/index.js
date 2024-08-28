@@ -39,10 +39,10 @@ const Header = (props) => {
 
         <div className="headerButtons">
           <ul>
-            <li>
-              <Link to="/cart">your cart ({totalNumCartItems})</Link>
-            </li>
             {currentUser && [
+              <li>
+                <Link to="/cart">your cart ({totalNumCartItems})</Link>
+              </li>,
               <li>
                 <Link to="/dashboard">my account</Link>
               </li>,

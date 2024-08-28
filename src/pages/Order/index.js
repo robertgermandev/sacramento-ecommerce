@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOrderDetailsStart } from "../../redux/Orders/actions";
 import { selectOrderDetails } from "../../redux/Orders/selectors";
 import OrderDetails from "../../components/OrderDetails";
+import { formatPrice } from "../../Utils";
+import "./styles.scss";
 
 const Order = () => {
   const dispatch = useDispatch();
@@ -16,10 +18,10 @@ const Order = () => {
   }, []);
 
   return (
-    <div>
+    <div className="order-container">
       <h1>Order ID: #{orderID}</h1>
       <OrderDetails order={orderDetails} />
-      <h3>Total: €{orderTotal}</h3>
+      <h3>Total: €{formatPrice(orderTotal)}</h3>
     </div>
   );
 };
