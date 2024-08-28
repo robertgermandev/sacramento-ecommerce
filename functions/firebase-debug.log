@@ -90,3 +90,123 @@ Web / API server started at ::1:4000
 
 Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
  
+[debug] [2024-08-28T11:09:25.817Z] File /Users/robertgerman/sacramento-ecommerce/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/robertgerman/sacramento-ecommerce/functions/index.js changed, reloading triggers"}}
+[debug] [2024-08-28T11:09:26.823Z] Validating nodejs source
+[debug] [2024-08-28T11:09:27.317Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.0",
+    "stripe": "^16.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-08-28T11:09:27.317Z] Building nodejs source
+[debug] [2024-08-28T11:09:27.317Z] Failed to find version of module node: reached end of search path /Users/robertgerman/sacramento-ecommerce/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-08-28T11:09:27.318Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-08-28T11:09:27.319Z] Found firebase-functions binary at '/Users/robertgerman/sacramento-ecommerce/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8522
+
+[debug] [2024-08-28T11:09:27.632Z] Got response from /__/functions.yaml {"endpoints":{"api":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
+[debug] [2024-08-28T11:10:58.865Z] File /Users/robertgerman/sacramento-ecommerce/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/robertgerman/sacramento-ecommerce/functions/index.js changed, reloading triggers"}}
+[debug] [2024-08-28T11:10:59.867Z] Validating nodejs source
+[debug] [2024-08-28T11:11:00.260Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.0",
+    "stripe": "^16.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-08-28T11:11:00.260Z] Building nodejs source
+[debug] [2024-08-28T11:11:00.260Z] Failed to find version of module node: reached end of search path /Users/robertgerman/sacramento-ecommerce/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-08-28T11:11:00.260Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-08-28T11:11:00.261Z] Found firebase-functions binary at '/Users/robertgerman/sacramento-ecommerce/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8520
+
+[debug] [2024-08-28T11:11:00.555Z] Got response from /__/functions.yaml {"endpoints":{"api":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
+[debug] [2024-08-28T11:11:01.270Z] File /Users/robertgerman/sacramento-ecommerce/functions/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/robertgerman/sacramento-ecommerce/functions/index.js changed, reloading triggers"}}
+[debug] [2024-08-28T11:11:02.270Z] Validating nodejs source
+[debug] [2024-08-28T11:11:02.676Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.0",
+    "stripe": "^16.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-08-28T11:11:02.676Z] Building nodejs source
+[debug] [2024-08-28T11:11:02.676Z] Failed to find version of module node: reached end of search path /Users/robertgerman/sacramento-ecommerce/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2024-08-28T11:11:02.676Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-08-28T11:11:02.677Z] Found firebase-functions binary at '/Users/robertgerman/sacramento-ecommerce/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8978
+
+[debug] [2024-08-28T11:11:02.861Z] Got response from /__/functions.yaml {"endpoints":{"api":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
