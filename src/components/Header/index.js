@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.scss";
 import Logo from "./../../assets/logo.png";
 import { Link } from "react-router-dom";
@@ -7,14 +7,18 @@ import { signOutUserStart } from "../../redux/User/actions";
 import { selectCartItemsCount } from "../../redux/Cart/selectors";
 import { selectCurrentUser } from "../../redux/User/selectors";
 
-const Header = (props) => {
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const currentUser = useSelector(selectCurrentUser);
   const totalNumCartItems = useSelector(selectCartItemsCount);
-
   const dispatch = useDispatch();
 
   const signOut = () => {
     dispatch(signOutUserStart());
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -26,7 +30,13 @@ const Header = (props) => {
           </Link>
         </div>
 
-        <nav>
+        <div className="menuToggle" onClick={toggleMenu}>
+          <div className={`bar ${isMenuOpen ? "open" : ""}`}></div>
+          <div className={`bar ${isMenuOpen ? "open" : ""}`}></div>
+          <div className={`bar ${isMenuOpen ? "open" : ""}`}></div>
+        </div>
+
+        <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -34,30 +44,57 @@ const Header = (props) => {
             <li>
               <Link to="/search">Search</Link>
             </li>
+            {currentUser && (
+              <>
+                <li>
+                  <Link to="/cart">your cart ({totalNumCartItems})</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard">my account</Link>
+                </li>
+                <li>
+                  <span onClick={signOut}>log out</span>
+                </li>
+              </>
+            )}
+            {!currentUser && (
+              <>
+                <li>
+                  <Link to="/registration">register</Link>
+                </li>
+                <li>
+                  <Link to="/login">log in</Link>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
 
-        <div className="headerButtons">
+        <div className={`headerButtons ${isMenuOpen ? "hide" : ""}`}>
           <ul>
-            {currentUser && [
-              <li>
-                <Link to="/cart">your cart ({totalNumCartItems})</Link>
-              </li>,
-              <li>
-                <Link to="/dashboard">my account</Link>
-              </li>,
-              <li>
-                <span onClick={() => signOut()}>log out</span>
-              </li>,
-            ]}
-            {!currentUser && [
-              <li>
-                <Link to="/registration">register</Link>
-              </li>,
-              <li>
-                <Link to="/login">log in</Link>
-              </li>,
-            ]}
+            {currentUser && (
+              <>
+                <li>
+                  <Link to="/cart">your cart ({totalNumCartItems})</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard">my account</Link>
+                </li>
+                <li>
+                  <span onClick={signOut}>log out</span>
+                </li>
+              </>
+            )}
+            {!currentUser && (
+              <>
+                <li>
+                  <Link to="/registration">register</Link>
+                </li>
+                <li>
+                  <Link to="/login">log in</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

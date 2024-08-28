@@ -34,14 +34,20 @@
         -webkit-transform: translate(-50%, -50%);
         -moz-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
-        font-size: 2rem;
+        font-size: 10rem;
+        color: white;
         line-height: 1;
         font-weight: 400;
-        background: white;
         padding: 8px 10px;
-        border-radius: 2rem;
-        color: black;
+        width: 60%;
+        text-align: center;
       }
     }
+  }
+}
+
+@media (max-width: 912px) {
+  .directory .wrap .item a {
+    font-size: 3rem;
   }
 }
