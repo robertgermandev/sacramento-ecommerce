@@ -6,6 +6,7 @@ import { addProduct } from "./../../redux/Cart/actions";
 import Button from "./../forms/Button";
 import "./styles.scss";
 import { selectProductData } from "../../redux/Products/selectors";
+import { formatPrice } from "../../Utils";
 
 const ProductCard = ({}) => {
   const dispatch = useDispatch();
@@ -44,7 +45,9 @@ const ProductCard = ({}) => {
             <h1>{productName}</h1>
           </li>
           <li>
-            <span>£{productPrice}</span>
+            {productPrice !== undefined && (
+              <span>€{formatPrice(productPrice)}</span>
+            )}
           </li>
           <li>
             <div className="addToCart">

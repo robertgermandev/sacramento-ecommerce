@@ -13,6 +13,8 @@ body,
 #root,
 .App,
 .fullHeight {
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }
 
@@ -72,8 +74,8 @@ a:hover {
 }
 
 .main {
+  flex: 1;
   width: 100%;
-  height: calc(100% - 6.5rem);
   max-width: 1450px;
   padding: 0 10px;
   margin: 0 auto;

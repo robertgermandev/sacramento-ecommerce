@@ -1,7 +1,26 @@
 .footer {
+  background-color: black;
+  color: #fff;
+  .wrap {
+    max-width: 1450px;
+    padding: 5px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
     .wrap {
-        max-width: 1450px;
-        padding: 20px 10px;
-        margin: 0 auto;
+      justify-content: center;
+      .footer-contact {
+        display: none;
+      }
+      .footer-copyright {
+        text-align: center;
+      }
     }
+  }
 }

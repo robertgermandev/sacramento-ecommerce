@@ -72,6 +72,12 @@ const Header = () => {
 
         <div className={`headerButtons ${isMenuOpen ? "hide" : ""}`}>
           <ul>
+            <li>
+              <Link to="/">home</Link>
+            </li>
+            <li>
+              <Link to="/search">search</Link>
+            </li>
             {currentUser && (
               <>
                 <li>
