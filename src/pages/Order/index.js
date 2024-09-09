@@ -21,7 +21,7 @@ const Order = () => {
     <div className="order-container">
       <h1>Order ID: #{orderID}</h1>
       <OrderDetails order={orderDetails} />
-      <h3>Total: €{formatPrice(orderTotal)}</h3>
+      <h3>Total: €{formatPrice(Number(orderTotal))}</h3>
     </div>
   );
 };

@@ -87,7 +87,7 @@ const ProductsResults = ({}) => {
             ...product,
           };
 
-          return <Product {...configProduct} />;
+          return <Product key={idx} {...configProduct} />;
         })}
       </div>
       {!isLastPage && <LoadMore {...configLoadMoreBtn} />}
