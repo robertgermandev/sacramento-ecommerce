@@ -2,6 +2,8 @@
 
 **Sacramento E-Commerce** is a full-featured e-commerce web application built to showcase and sell boats and yachts. Designed with both performance and luxury in mind, this project simulates a premium online marketplace for maritime enthusiasts, dealers, and rental companies.
 
+https://sacramento-ecommerce.web.app/
+
 ---
 
 ## 🌊 Project Overview
